@@ -1,0 +1,24 @@
+{
+  "name": "advert-window",
+  "version": "1.0.0",
+  "description": "Decide whether an object is within an acceptable time window and matches on some property.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willchis/advert-window.git"
+  },
+  "author": "W Chislett",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/willchis/advert-window/issues"
+  },
+  "homepage": "https://github.com/willchis/advert-window#readme",
+  "dependencies": {
+    "nan": "^2.6.2"
+  },
+  "gypfile": true
+}
