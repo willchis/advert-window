@@ -2,7 +2,6 @@
 #include <ctime>
 #include <time.h>
 #include <nan.h>
-#include <iostream>
 
 using v8::FunctionCallbackInfo;
 using v8::Isolate;
@@ -47,15 +46,11 @@ void checkWindow(const FunctionCallbackInfo<Value>& args) {
 
   // Check if the time passed in is within +/- timeWindowMinutes of now
   time_t now = time(0);
-  std::cout << now << std::endl;
-  std::cout << scheduleTime << std::endl;
   double diffInSeconds = difftime(now, scheduleTime);
-  std::cout << diffInSeconds << std::endl;
 
   bool isWithinWindow = diffInSeconds <= timeWindowMinutes * 60;
   bool matchingId = source == advertId;
   
-
   args.GetReturnValue().Set(isWithinWindow && matchingId);
 }
 
@@ -64,12 +59,3 @@ void init(Local<Object> exports) {
 }
 
 NODE_MODULE(advertWindow, init)
-
-
-/* BroadcastSchedule.prototype.matchingAdvertIdAndWithinTimeWindow = function(ipHouseId, minutesEitherSideOfNow) {
-    const now = moment().utc();
-    const minutesEitherSideOfNowInSeconds = minutesEitherSideOfNow * 60;
-    const parsedTime = moment(this.startTime, moment.ISO_8601);
-    const timeDiff = Math.abs(parsedTime.diff(now, 'seconds'));
-    return this.source && this.source === ipHouseId && timeDiff <= minutesEitherSideOfNowInSeconds;
-}; */
