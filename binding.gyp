@@ -1,11 +1,8 @@
 {
   "targets": [
     {
-      "target_name": "hello",
-      "sources": [ "hello.cc" ],
-      "include_dirs": [
-        "<!(node -e \"require('nan')\")"
-      ]
+      "target_name": "advertWindow",
+      "sources": [ "/cpp/advertWindow.cc" ]
     }
   ]
 }
