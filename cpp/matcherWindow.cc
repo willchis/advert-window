@@ -59,4 +59,4 @@ void init(Local<Object> exports) {
   NODE_SET_METHOD(exports, "checkWindow", checkWindow);
 }
 
-NODE_MODULE(advertWindow, init)
+NODE_MODULE(matcherWindow, init)

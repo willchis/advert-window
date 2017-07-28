@@ -1,5 +1,5 @@
 const assert = require('assert');
-const advertWindow = require('../advertWindow.js');
+const advertWindow = require('../matcherWindow.js');
 const moment = require('moment');
 
 describe('#checkWindow', function() {

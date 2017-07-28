@@ -1,4 +1,4 @@
-const ad = require('./build/Release/advertWindow');
+const ad = require('./build/Release/matcherWindow');
 const moment = require('moment');
 
 // JS version
