@@ -10,7 +10,6 @@ function matchingAdvertIdAndWithinTimeWindow(source, ipHouseId, scheduleTime, mi
     return source === ipHouseId && timeDiff <= minutesEitherSideOfNowInSeconds;
 };
 
-
 console.time('c++: ');
 for (i = 0; i < 1000; i ++) {
     ad.checkWindow("foo", "foo", "2017-07-28T12:56:12Z", 9);

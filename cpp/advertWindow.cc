@@ -2,6 +2,8 @@
 #include <ctime>
 #include <time.h>
 #include <nan.h>
+#include <cmath>
+#include <iostream>
 
 using v8::FunctionCallbackInfo;
 using v8::Isolate;
@@ -36,17 +38,16 @@ void checkWindow(const FunctionCallbackInfo<Value>& args) {
 
   int timeWindowMinutes = args[3]->NumberValue();
 
-
   Nan::Utf8String timeString(args[2]->ToString());
   char * timeChars = *timeString;
   struct tm timeIntermediate;
-  strptime(timeChars, "%Y-%m-%dT%H:%M", &timeIntermediate);
-
-  time_t scheduleTime = mktime(&timeIntermediate);
+  strptime(timeChars, "%Y-%m-%dT%H:%M:%S.000%Z", &timeIntermediate);
+  
+  time_t scheduleTime = timegm(&timeIntermediate) - timezone;
 
   // Check if the time passed in is within +/- timeWindowMinutes of now
   time_t now = time(0);
-  double diffInSeconds = difftime(now, scheduleTime);
+  double diffInSeconds = std::abs(difftime(now, scheduleTime));
 
   bool isWithinWindow = diffInSeconds <= timeWindowMinutes * 60;
   bool matchingId = source == advertId;
