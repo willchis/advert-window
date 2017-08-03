@@ -17,7 +17,7 @@ void checkWindow(const FunctionCallbackInfo<Value>& args) {
   Isolate* isolate = args.GetIsolate();
 
   // arg 0 = source (from schedule)
-  // arg 1 = advert id (to match source)
+  // arg 1 = id (to match source)
   // arg 2 = startTime of item in schedule
   // arg 3 = minutesEitherSideOfNow (window for matching)
 
@@ -34,7 +34,7 @@ void checkWindow(const FunctionCallbackInfo<Value>& args) {
   //TODO - check other args
 
   Local<v8::String> source(args[0]->ToString());
-  Local<v8::String> advertId(args[1]->ToString());
+  Local<v8::String> id(args[1]->ToString());
 
   int timeWindowMinutes = args[3]->NumberValue();
 
@@ -50,7 +50,7 @@ void checkWindow(const FunctionCallbackInfo<Value>& args) {
   double diffInSeconds = std::abs(difftime(now, scheduleTime));
 
   bool isWithinWindow = diffInSeconds <= timeWindowMinutes * 60;
-  bool matchingId = source == advertId;
+  bool matchingId = source == id;
   
   args.GetReturnValue().Set(isWithinWindow && matchingId);
 }

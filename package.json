@@ -1,6 +1,6 @@
 {
-  "name": "advert-window",
-  "version": "1.0.0",
+  "name": "matcher-window",
+  "version": "0.1.0",
   "description": "Decide whether an object is within an acceptable time window and matches on some property.",
   "main": "server.js",
   "scripts": {
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/willchis/advert-window.git"
+    "url": "git+https://github.com/willchis/matcher-window.git"
   },
   "author": "W Chislett",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/willchis/advert-window/issues"
+    "url": "https://github.com/willchis/matcher-window/issues"
   },
-  "homepage": "https://github.com/willchis/advert-window#readme",
+  "homepage": "https://github.com/willchis/matcher-window#readme",
   "dependencies": {
     "mocha": "^3.4.2",
     "moment": "^2.18.1",
